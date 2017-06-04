@@ -236,3 +236,4 @@ typings/
 # Custom
 #
 *.iml
+snapshots/*.json
