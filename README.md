@@ -1,6 +1,6 @@
-# generic petstore
+# simple petstore
 
-A generic json-backed REST API similar to Swagger's Petstore API.
+A simple json-backed REST API similar to Swagger's Petstore API.
 
 This example uses [json-server](https://github.com/typicode/json-server) to quickly create a usable API from a structured file-based JSON database.
 

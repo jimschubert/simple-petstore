@@ -1,5 +1,5 @@
 {
-  "name": "generic-petstore",
+  "name": "simple-petstore",
   "version": "1.0.0",
   "description": "JSON-backed REST API similar to Swagger Petstore",
   "main": "index.js",
