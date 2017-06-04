@@ -1,0 +1,23 @@
+{
+  "name": "generic-petstore",
+  "version": "1.0.0",
+  "description": "JSON-backed REST API similar to Swagger Petstore",
+  "main": "index.js",
+  "author": "Jim Schubert <james.schubert@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "json-server": "^0.10.1"
+  },
+  "scripts": {
+    "start": "json-server --watch db.json"
+  },
+  "devDependencies": {
+    "faker": "^4.1.0",
+    "lodash": "^4.17.4",
+    "rosie": "^1.6.0",
+    "supertest": "^3.0.0"
+  },
+  "engines": {
+    "node": "8.x"
+  }
+}
