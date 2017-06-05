@@ -35,6 +35,22 @@ server.get(`${apiPrefix}/pets/findByStatusMulti`, function(req, res, next){
     next();
 });
 
+server.get(`${apiPrefix}/orders/:id/pet`, function(req, res, next){
+    const order = router.db.get('orders')
+        .getById(req.params.id)
+        .value();
+
+    if(util.isUndefined(order)){
+        return res.status(404).json({});
+    }
+
+    const pet = router.db.get('pets')
+        .getById(order.petId)
+        .value();
+
+    return res.status(200).json(pet);
+});
+
 server.use(apiPrefix, router);
 
 server.listen(3000, () => {

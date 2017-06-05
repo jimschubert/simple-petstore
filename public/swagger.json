@@ -611,6 +611,153 @@
           }
         }
       }
+    },
+
+    "/orders": {
+      "get": {
+        "tags": [
+          "store"
+        ],
+        "summary": "Gets info about orders in the store",
+        "description": "",
+        "operationId": "getOrders",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Status values that need to be considered for filter",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "placed",
+                "approved",
+                "delivered"
+              ],
+              "default": "placed"
+            },
+            "collectionFormat": "csv"
+          },
+          {
+            "in": "query",
+            "name": "_page",
+            "description": "Page number to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "minimum": "1",
+            "default": "1"
+          },
+          {
+            "in": "query",
+            "name": "_limit",
+            "description": "Page size to return",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "minimum": "1",
+            "default": "5"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Order information",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Order"
+              }
+            },
+            "headers": {
+              "Link": {
+                "type": "string",
+                "description": "prev/first/next/last Link header info"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/{orderId}": {
+      "get": {
+        "tags": [
+          "store"
+        ],
+        "summary": "Get order by id",
+        "description": "Returns a specific order",
+        "operationId": "getOrderById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "id of order to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Order"
+            }
+          },
+          "400": {
+            "description": "Invalid id supplied"
+          },
+          "404": {
+            "description": "Order not found"
+          }
+        }
+      }
+    },
+    "/orders/{orderId}/pet": {
+      "get": {
+        "tags": [
+          "store"
+        ],
+        "summary": "Get pet associated with an order",
+        "description": "Returns a specific order's pet",
+        "operationId": "getByByOrderId",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "description": "id of order to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Pet"
+            }
+          },
+          "400": {
+            "description": "Invalid id supplied"
+          },
+          "404": {
+            "description": "Pet not found"
+          }
+        }
+      }
     }
   },
   "definitions": {
