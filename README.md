@@ -11,8 +11,19 @@ This example uses [json-server](https://github.com/typicode/json-server) to quic
 
 # Running
 
+To run the pure json-server frontend on top of `db.json`, just run:
+
 ```
 yarn start
 ```
 
+This doesn't include any of the additional endpoints or customizations for testing more complex Swagger capabilities.
+
+To run a server with the more complex functionality, run:
+
+```
+yarn run simple
+```
+
+This includes Swagger UI at the served index to get a feel for the API's functionality. This also helps if you're not that familiar with json-server.
 
