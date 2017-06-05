@@ -375,8 +375,9 @@
           "type": "integer",
           "format": "int64"
         },
-        "category": {
-          "$ref": "#/definitions/Category"
+        "categoryId": {
+          "type": "integer",
+          "format": "int64"
         },
         "name": {
           "type": "string",
