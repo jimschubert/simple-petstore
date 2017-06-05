@@ -30,6 +30,11 @@ server.get(`${apiPrefix}/pets/findByStatus`, function(req, res, next){
     next();
 });
 
+server.get(`${apiPrefix}/pets/findByStatusMulti`, function(req, res, next){
+    req.url = `${apiPrefix}/pets`;
+    next();
+});
+
 server.use(apiPrefix, router);
 
 server.listen(3000, () => {
