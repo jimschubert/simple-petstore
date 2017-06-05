@@ -4,8 +4,9 @@
   "description": "JSON-backed REST API similar to Swagger Petstore",
   "main": "index.js",
   "author": "Jim Schubert <james.schubert@gmail.com>",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
+    "express": "4.15.3",
     "express-route-log": "^0.0.2",
     "json-server": "^0.10.1"
   },
