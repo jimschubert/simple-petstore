@@ -259,6 +259,312 @@
           }
         }
       }
+    },
+    "/tags": {
+      "get": {
+        "tags": [
+          "store"
+        ],
+        "summary": "Gets info about tags in the store",
+        "description": "",
+        "operationId": "getTags",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "_page",
+            "description": "Page number to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "1",
+            "minimum": "1"
+          },
+          {
+            "in": "query",
+            "name": "_limit",
+            "description": "Page size to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "20",
+            "minimum": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Tag information",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Tag"
+              }
+            },
+            "headers": {
+              "Link": {
+                "type": "string",
+                "description": "prev/first/next/last Link header info"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tags/{tagId}": {
+      "get": {
+        "tags": [
+          "store"
+        ],
+        "summary": "Get tag by id",
+        "description": "Returns a specific tag",
+        "operationId": "getTagById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "tagId",
+            "in": "path",
+            "description": "id of tag to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Tag"
+            }
+          },
+          "400": {
+            "description": "Invalid id supplied"
+          },
+          "404": {
+            "description": "Tag not found"
+          }
+        }
+      }
+    },
+    "/tags/{tagId}/pets": {
+      "get": {
+        "tags": [
+          "store",
+          "pet"
+        ],
+        "summary": "Get pets for a given tag id",
+        "description": "Returns a set of pets for a given tag",
+        "operationId": "getPetsByTag",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "tagId",
+            "in": "path",
+            "description": "id of tag to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "_page",
+            "description": "Page number to return",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "1",
+            "minimum": "1"
+          },
+          {
+            "in": "query",
+            "name": "_limit",
+            "description": "Page size to return",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "10",
+            "minimum": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Pet"
+              }
+            },
+            "headers": {
+              "Link": {
+                "type": "string",
+                "description": "prev/first/next/last Link header info"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/categories": {
+      "get": {
+        "tags": [
+          "store"
+        ],
+        "summary": "Gets info about categories in the store",
+        "description": "",
+        "operationId": "getCategories",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "_page",
+            "description": "Page number to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "1",
+            "minimum": "1"
+          },
+          {
+            "in": "query",
+            "name": "_limit",
+            "description": "Page size to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64",
+            "default": "20",
+            "minimum": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Category information",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Category"
+              }
+            },
+            "headers": {
+              "Link": {
+                "type": "string",
+                "description": "prev/first/next/last Link header info"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/categories/{categoryId}": {
+      "get": {
+        "tags": [
+          "store"
+        ],
+        "summary": "Get category by id",
+        "description": "Returns a specific category",
+        "operationId": "getCategoryById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "description": "id of category to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/Category"
+            }
+          },
+          "400": {
+            "description": "Invalid id supplied"
+          },
+          "404": {
+            "description": "Category not found"
+          }
+        }
+      }
+    },
+    "/categories/{categoryId}/pets": {
+      "get": {
+        "tags": [
+          "store",
+          "pet"
+        ],
+        "summary": "Get pets for a given category id",
+        "description": "Returns a set of pets for a given category",
+        "operationId": "getPetsByCategory",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "description": "id of category to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "_page",
+            "description": "Page number to return",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "1",
+            "minimum": "1"
+          },
+          {
+            "in": "query",
+            "name": "_limit",
+            "description": "Page size to return",
+            "required": false,
+            "type": "integer",
+            "format": "int64",
+            "default": "10",
+            "minimum": "1"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Pet"
+              }
+            },
+            "headers": {
+              "Link": {
+                "type": "string",
+                "description": "prev/first/next/last Link header info"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
