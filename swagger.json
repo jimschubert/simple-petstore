@@ -58,7 +58,10 @@
         ],
         "responses": {
           "201": {
-            "description": "Pet created"
+            "description": "Pet created",
+            "schema": {
+              "$ref": "#/definitions/Pet"
+            }
           },
           "405": {
             "description": "Invalid input"

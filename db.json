@@ -4476,6 +4476,32 @@
         }
       ],
       "status": "pending"
+    },
+    {
+      "id": 201,
+      "categoryId": 1,
+      "name": "doggie",
+      "photoUrls": [],
+      "tags": [
+        {
+          "id": 1,
+          "name": ""
+        }
+      ],
+      "status": "available"
+    },
+    {
+      "id": 202,
+      "categoryId": 1,
+      "name": "doggie",
+      "photoUrls": [],
+      "tags": [
+        {
+          "name": "cute",
+          "id": 1
+        }
+      ],
+      "status": "available"
     }
   ],
   "tags": [
